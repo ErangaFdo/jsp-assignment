@@ -1,4 +1,4 @@
-package lk.ijse.gdse;
+package lk.ijse.gdse.Model;
 
 import java.sql.*;
 

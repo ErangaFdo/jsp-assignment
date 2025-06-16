@@ -1,10 +1,11 @@
-package lk.ijse.gdse;
+package lk.ijse.gdse.Controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lk.ijse.gdse.Model.LoginModel;
 
 import java.io.IOException;
 

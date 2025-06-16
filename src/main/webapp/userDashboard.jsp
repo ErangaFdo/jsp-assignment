@@ -80,9 +80,6 @@
                         </div>
                     </form>
 
-                    <c:if test="${not empty message}">
-                        <div class="alert alert-info mt-3">${message}</div>
-                    </c:if>
                 </div>
             </div>
         </div>

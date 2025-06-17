@@ -39,8 +39,8 @@
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand fw-bold" href="#">📢 CMS</a>
         <div class="d-flex gap-2">
-            <a href="MyComplaint.jsp" class="btn btn-outline-light btn-sm">📄 My Complaint</a>
-            <a href="login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
+            <a href="" class="btn btn-outline-light btn-sm">📄 My Complaint</a>
+            <a href="Login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
         </div>
     </div>
 </nav>
@@ -54,7 +54,7 @@
                     <h4 class="text-primary mb-0">📝 Submit New Complaint</h4>
                 </div>
                 <div class="card-body">
-                    <form action="SubmitComplaintServlet" method="post">
+                    <form action="complaint" method="post">
                         <div class="mb-3">
                             <label class="form-label">👤 User Name</label>
                             <input type="text" name="username" class="form-control" placeholder="Enter your name" required>

@@ -25,8 +25,8 @@
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">📄 My Complaints</a>
         <div class="d-flex">
-            <a href="SubmitComplaint.jsp" class="btn btn-outline-light btn-sm me-2">➕ New Complaint</a>
-            <a href="login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
+            <a href="userDashboard.jsp" class="btn btn-outline-light btn-sm me-2">➕ New Complaint</a>
+            <a href="Login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
         </div>
     </div>
 </nav>

@@ -8,9 +8,10 @@ public class ComplaintDto {
 
     }
 
-    public ComplaintDto(String uname, String cid, String subject, String description, String date, String status) {
-        this.uname = uname;
+    public ComplaintDto(String cid,String uname,  String subject, String description, String date, String status) {
+
         this.cid = cid;
+        this.uname = uname;
         this.subject = subject;
         this.description = description;
         this.date = date;

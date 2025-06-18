@@ -1,3 +1,6 @@
+<%@ page import="lk.ijse.gdse.Model.CompliantModel" %>
+<%@ page import="java.util.List" %>
+<%@ page import="lk.ijse.gdse.Dto.ComplaintDto" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,11 +36,20 @@
 
 <!-- Complaint Table -->
 <div class="container mt-5">
-    <div class="card">
-        <div class="card-header bg-white text-center">
-            <h4 class="text-primary mb-0">🧾 Complaint History</h4>
-        </div>
-        <div class="card-body p-0">
+
+
+
+        <h4 class="text-primary mb-0">🧾 Complaint History</h4>
+
+
+        <%
+             String username = request.getParameter("username");
+             CompliantModel compliantModel = new CompliantModel();
+             List<ComplaintDto>complaintDtos= compliantModel.getComplaintByuser(username);
+        %>
+
+
+
 
             <table class="table table-striped mb-0">
                 <thead class="table-dark">
@@ -50,17 +62,19 @@
                 </tr>
                 </thead>
                 <tbody>
+                <% for (ComplaintDto complaintDto : complaintDtos){ %>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><%= complaintDto.getUname() %></td>
+                    <td><%= complaintDto.getSubject() %></td>
+                    <td><%= complaintDto.getDescription()%></td>
+                    <td><%= complaintDto.getDate()%></td>
+                    <td><%= complaintDto.getStatus()%></td>
                 </tr>
+                <% } %>
                 </tbody>
             </table>
-        </div>
-    </div>
+
+
 </div>
 
 </body>

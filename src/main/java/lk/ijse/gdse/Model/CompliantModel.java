@@ -67,4 +67,36 @@ public class CompliantModel {
         }
         return complaintDtos;
     }
+
+
+    public List<ComplaintDto> getallComplaint(String username, String subject, String description, String date, String status) {
+        String url = "jdbc:mysql://localhost:3306/jspassignment";
+        String user = "root";
+        String pass = "user1";
+
+        List<ComplaintDto> complaintDtos = new ArrayList<>();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url,user,pass);
+            String sql = "SELECT * FROM complaint ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                complaintDtos.add(new ComplaintDto(
+                        resultSet.getString("cid"),
+                        resultSet.getString("uname"),
+                        resultSet.getString("subject"),
+                        resultSet.getString("description"),
+                        resultSet.getString("date"),
+                        resultSet.getString("status")
+                ));
+            }
+
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return complaintDtos;
+    }
 }

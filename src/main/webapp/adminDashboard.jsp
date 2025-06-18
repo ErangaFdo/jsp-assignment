@@ -1,3 +1,6 @@
+<%@ page import="lk.ijse.gdse.Model.CompliantModel" %>
+<%@ page import="lk.ijse.gdse.Dto.ComplaintDto" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,13 +38,22 @@
 
 <!-- Admin Table View -->
 <div class="container mt-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h3>📋 All Complaints</h3>
-        <button class="btn btn-outline-secondary btn-sm">Export to Excel</button>
-    </div>
 
-    <div class="card shadow-sm">
-        <div class="card-body p-0">
+        <h3>📋 All Complaints</h3>
+
+    <%
+        String username = request.getParameter("username");
+        String subject  = request.getParameter("subject");
+        String description = request.getParameter("description");
+        String  date  = request.getParameter("date");
+        String status = request.getParameter("status");
+        CompliantModel compliantModel = new CompliantModel();
+        List<ComplaintDto> complaintDtos= compliantModel.getallComplaint(username,subject,description,date,status);
+    %>
+
+
+
+
             <table class="table table-striped mb-0">
                 <thead class="table-dark">
                 <tr>
@@ -49,25 +61,27 @@
                     <th>Subject</th>
                     <th>Description</th>
                     <th>Date</th>
+                    <th>Status</th>
                     <th class="text-center">Actions</th>
                 </tr>
                 </thead>
                 <tbody>
+                <% for (ComplaintDto complaintDto : complaintDtos){ %>
                 <tr>
-                    <td>Eranga</td>
-                    <td>Water Leakage</td>
-                    <td>Pipe leaking in Zone 4</td>
-                    <td>2025-06-15</td>
-                    <td class="text-center">
-                        <button class="btn btn-sm btn-warning">Update</button>
-                        <button class="btn btn-sm btn-danger">Delete</button>
-                    </td>
+                    <td><%= complaintDto.getUname() %></td>
+                    <td><%= complaintDto.getSubject() %></td>
+                    <td><%= complaintDto.getDescription()%></td>
+                    <td><%= complaintDto.getDate()%></td>
+                    <td><%= complaintDto.getStatus()%></td>
+                    <td> <button type="submit" class="btn btn-warning btn-sm">Update</button> </td>
+                    <td> <button type="submit" class="btn btn-warning btn-sm">Delete</button> </td>
                 </tr>
-                <!-- Repeat with dynamic content -->
+
+                <% } %>
                 </tbody>
             </table>
-        </div>
-    </div>
+
+
 </div>
 
 </body>

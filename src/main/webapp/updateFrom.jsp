@@ -57,7 +57,7 @@
             <h4 class="mb-0">Update Complaint</h4>
         </div>
         <div class="card-body p-4">
-            <form action="complaint" method="post">
+            <form action="admincomplaint" method="post">
                 <input type="hidden" name="action" value="update">
                 <input type="hidden" name="cid" value="<%= request.getParameter("cid") %>">
 
@@ -91,7 +91,7 @@
 
                 <div class="d-flex justify-content-end gap-2">
                     <button type="submit" class="btn btn-primary">Update</button>
-                    <a href="adminDashBoard.jsp" class="btn btn-outline-secondary">Cancel</a>
+                    <a href="adminDashboard.jsp" class="btn btn-outline-secondary">Cancel</a>
                 </div>
             </form>
         </div>

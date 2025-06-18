@@ -31,7 +31,7 @@
     <div class="container">
         <a class="navbar-brand fw-bold" href="#">🛠️ CMS Admin</a>
         <div class="d-flex">
-            <a href="login.jsp" class="btn btn-outline-light btn-sm">Logout</a>
+            <a href="Login.jsp" class="btn btn-outline-light btn-sm">Logout</a>
         </div>
     </div>
 </nav>
@@ -70,11 +70,25 @@
                 <tr>
                     <td><%= complaintDto.getUname() %></td>
                     <td><%= complaintDto.getSubject() %></td>
-                    <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getDate()%></td>
+                    <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getStatus()%></td>
-                    <td> <button type="submit" class="btn btn-warning btn-sm">Update</button> </td>
-                    <td> <button type="submit" class="btn btn-warning btn-sm">Delete</button> </td>
+                    <td>
+
+                        <form action="updateFrom.jsp" method="post">
+                            <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="cid" value="<%=complaintDto.getCid()%>">
+                            <input type="hidden" name="uname" value="<%=complaintDto.getUname()%>">
+                            <input type="hidden" name="subject" value="<%=complaintDto.getSubject()%>">
+                            <input type="hidden" name="date" value="<%=complaintDto.getDate()%>">
+                            <input type="hidden" name="description" value="<%=complaintDto.getDescription()%>">
+                            <input type="hidden" name="status" value="<%=complaintDto.getStatus()%>">
+                            <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                        </form>
+
+
+                        <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                    </td>
                 </tr>
 
                 <% } %>

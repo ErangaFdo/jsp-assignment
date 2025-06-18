@@ -25,7 +25,16 @@ public class AdminComplaintController extends HttpServlet {
                 String description = req.getParameter("description");
                 String status = req.getParameter("status");
 
-                boolean update = compliantModel.
+                boolean update = compliantModel.updateComplaint(cid, username, subject, date, description, status);
+
+                if (update) {
+                    System.out.println("update complaint");
+                } else {
+                    System.out.println("update not complaint");
+                }
+            default:
+                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+
         }
 
     }

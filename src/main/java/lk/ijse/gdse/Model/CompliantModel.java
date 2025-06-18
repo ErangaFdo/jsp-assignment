@@ -99,4 +99,30 @@ public class CompliantModel {
         }
         return complaintDtos;
     }
+
+    public boolean updateComplaint(String complaintId, String username, String subject, String description, String date, String status)  {
+        String url = "jdbc:mysql://localhost:3306/jspassignment";
+        String user = "root";
+        String pass = "user1";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection =DriverManager.getConnection(url,user,pass);
+
+            String sql ="UPDATE  complaint SET uname=?,subject=?,description=?,date=?, status=?  WHERE cid=? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.setString(2,subject);
+            preparedStatement.setString(3,description);
+            preparedStatement.setString(4,date);
+            preparedStatement.setString(5,status);
+            preparedStatement.setString(6,complaintId);
+
+            int result = preparedStatement.executeUpdate();
+            return result >0 ;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -17,12 +17,12 @@ public class ComplaintController extends HttpServlet {
         String complaintID = UUID.randomUUID().toString();
         String username = req.getParameter("username");
         String Subject = req.getParameter("subject");
-        String description = req.getParameter("description");
         String date = req.getParameter("date");
+        String description = req.getParameter("description");
         String status = req.getParameter("status");
 
         CompliantModel compliantModel = new CompliantModel();
-        boolean isSaved = compliantModel.saveComplaint(complaintID, username, Subject, description, date, status);
+        boolean isSaved = compliantModel.saveComplaint(complaintID, username, Subject,  date, description, status);
         if (isSaved) {
             resp.sendRedirect("userComplaint.jsp?username=" + username);
         } else {

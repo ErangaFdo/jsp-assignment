@@ -1,20 +1,20 @@
 package lk.ijse.gdse.Dto;
 
 public class ComplaintDto {
-     private String cid, uname, subject, description, date , status;
+     private String cid, uname, subject,  date , description,status;
 
 
     public ComplaintDto() {
 
     }
 
-    public ComplaintDto(String cid,String uname,  String subject, String description, String date, String status) {
+    public ComplaintDto(String cid,String uname,  String subject,  String date, String description,String status) {
 
         this.cid = cid;
         this.uname = uname;
         this.subject = subject;
-        this.description = description;
         this.date = date;
+        this.description = description;
         this.status = status;
     }
 

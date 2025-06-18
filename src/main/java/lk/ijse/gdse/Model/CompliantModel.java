@@ -125,4 +125,26 @@ public class CompliantModel {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean deleteCompliant(String cid) {
+        String url = "jdbc:mysql://localhost:3306/jspassignment";
+        String user = "root";
+        String pass = "user1";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url,user,pass);
+
+            String sql = "DELETE FROM complaint WHERE cid=?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,cid);
+
+            int result = preparedStatement.executeUpdate();
+            return result >0 ;
+
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

@@ -32,6 +32,19 @@ public class AdminComplaintController extends HttpServlet {
                 } else {
                     System.out.println("update not complaint");
                 }
+                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+                break;
+
+            case "delete":
+                String deleteCid = req.getParameter("cid");
+                boolean delete = compliantModel.deleteCompliant(deleteCid);
+                if (delete) {
+                    System.out.println("delete complaint");
+                } else {
+                    System.out.println("delete not complaint");
+                }
+                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+                break;
             default:
                 req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
 

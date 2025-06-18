@@ -56,8 +56,8 @@
                 <tr>
                     <th>User Name</th>
                     <th>Subject</th>
-                    <th>Description</th>
                     <th>Date</th>
+                    <th>Description</th>
                     <th>Status</th>
                 </tr>
                 </thead>
@@ -66,8 +66,8 @@
                 <tr>
                     <td><%= complaintDto.getUname() %></td>
                     <td><%= complaintDto.getSubject() %></td>
-                    <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getDate()%></td>
+                    <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getStatus()%></td>
                 </tr>
                 <% } %>

@@ -44,11 +44,11 @@
     <%
         String username = request.getParameter("username");
         String subject  = request.getParameter("subject");
-        String description = request.getParameter("description");
         String  date  = request.getParameter("date");
+        String description = request.getParameter("description");
         String status = request.getParameter("status");
         CompliantModel compliantModel = new CompliantModel();
-        List<ComplaintDto> complaintDtos= compliantModel.getallComplaint(username,subject,description,date,status);
+        List<ComplaintDto> complaintDtos= compliantModel.getallComplaint(username,subject,date,description,status);
     %>
 
 
@@ -59,8 +59,8 @@
                 <tr>
                     <th>User Name</th>
                     <th>Subject</th>
-                    <th>Description</th>
                     <th>Date</th>
+                    <th>Description</th>
                     <th>Status</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -75,7 +75,7 @@
                     <td><%= complaintDto.getStatus()%></td>
                     <td>
 
-                        <form action="updateFrom.jsp" method="post">
+                        <form action="updateFrom.jsp" method="post" style="display: inline-block">
                             <input type="hidden" name="action" value="update">
                             <input type="hidden" name="cid" value="<%=complaintDto.getCid()%>">
                             <input type="hidden" name="uname" value="<%=complaintDto.getUname()%>">
@@ -86,8 +86,12 @@
                             <button type="submit" class="btn btn-warning btn-sm">Update</button>
                         </form>
 
+                        <form action="admincomplaint" method="post" style="display: inline-block">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="cid" value="<%=complaintDto.getCid()%>">
+                            <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                        </form>
 
-                        <button type="submit" class="btn btn-warning btn-sm">Delete</button>
                     </td>
                 </tr>
 

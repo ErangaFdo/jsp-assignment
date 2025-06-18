@@ -76,13 +76,10 @@
                     <input type="date" name="date" class="form-control" value="<%= request.getParameter("date") %>" required>
                 </div>
 
-
                 <div class="mb-3">
                     <label class="form-label">Description</label>
                     <textarea name="description" class="form-control" rows="4" required><%= request.getParameter("description") %></textarea>
                 </div>
-
-
 
                 <div class="mb-4">
                     <label class="form-label">Status</label>

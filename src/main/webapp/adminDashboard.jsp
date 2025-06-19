@@ -29,7 +29,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">🛠️ CMS Admin</a>
+        <a class="navbar-brand fw-bold" href="#">CMS Admin</a>
         <div class="d-flex">
             <a href="Login.jsp" class="btn btn-outline-light btn-sm">Logout</a>
         </div>

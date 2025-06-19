@@ -37,7 +37,7 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand fw-bold" href="#">📢 CMS</a>
+        <a class="navbar-brand fw-bold" href="#"> Complaint Management System </a>
         <div class="d-flex gap-2">
             <a href="" class="btn btn-outline-light btn-sm">📄 My Complaint</a>
             <a href="Login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
@@ -56,22 +56,22 @@
                 <div class="card-body">
                     <form action="complaint" method="post">
                         <div class="mb-3">
-                            <label class="form-label">👤 User Name</label>
+                            <label class="form-label"> User Name</label>
                             <input type="text" name="username" class="form-control" placeholder="Enter your name" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">📌 Subject</label>
+                            <label class="form-label"> Subject</label>
                             <input type="text" name="subject" class="form-control" placeholder="Enter complaint subject" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">📅 Date</label>
+                            <label class="form-label"> Date</label>
                             <input type="date" name="date" class="form-control" required>
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label">📝 Description</label>
+                            <label class="form-label"> Description</label>
                             <textarea name="description" class="form-control" rows="4" placeholder="Describe your complaint..." required></textarea>
                         </div>
 

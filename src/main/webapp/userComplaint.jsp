@@ -59,6 +59,8 @@
                     <th>Date</th>
                     <th>Description</th>
                     <th>Status</th>
+                    <th class="text-center">Actions</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -69,6 +71,11 @@
                     <td><%= complaintDto.getDate()%></td>
                     <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getStatus()%></td>
+                    <td>
+                        <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                        <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                    </td>
+
                 </tr>
                 <% } %>
                 </tbody>

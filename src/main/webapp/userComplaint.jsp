@@ -72,8 +72,23 @@
                     <td><%= complaintDto.getDescription()%></td>
                     <td><%= complaintDto.getStatus()%></td>
                     <td>
-                        <button type="submit" class="btn btn-warning btn-sm">Update</button>
-                        <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                        <form action="userUpdateForm.jsp" method="post" style="display: inline-block">
+                            <input type="hidden" name="action" value="update">
+                            <input type="hidden" name="cid" value="<%=complaintDto.getCid()%>">
+                            <input type="hidden" name="uname" value="<%=complaintDto.getUname()%>">
+                            <input type="hidden" name="subject" value="<%=complaintDto.getSubject()%>">
+                            <input type="hidden" name="date" value="<%=complaintDto.getDate()%>">
+                            <input type="hidden" name="description" value="<%=complaintDto.getDescription()%>">
+                            <input type="hidden" name="status" value="<%=complaintDto.getStatus()%>">
+                            <button type="submit" class="btn btn-warning btn-sm">Update</button>
+                        </form>
+
+                        <form action="userupdateform" method="post" style="display: inline-block">
+                            <input type="hidden" name="action" value="delete">
+                            <input type="hidden" name="cid" value="<%=complaintDto.getCid()%>">
+                            <button type="submit" class="btn btn-warning btn-sm">Delete</button>
+                        </form>
+
                     </td>
 
                 </tr>

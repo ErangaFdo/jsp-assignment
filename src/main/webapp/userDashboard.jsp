@@ -39,7 +39,6 @@
     <div class="container d-flex justify-content-between align-items-center">
         <a class="navbar-brand fw-bold" href="#"> Complaint Management System </a>
         <div class="d-flex gap-2">
-            <a href="" class="btn btn-outline-light btn-sm">📄 My Complaint</a>
             <a href="Login.jsp" class="btn btn-outline-light btn-sm">🚪 Logout</a>
         </div>
     </div>

@@ -62,29 +62,39 @@
                 <input type="hidden" name="cid" value="<%= request.getParameter("cid") %>">
 
                 <div class="mb-3">
-                    <label class="form-label">User Name</label>
-                    <input type="text" name="uname" class="form-control" value="<%= request.getParameter("uname") %>" required>
+                <label>Status</label>
+                <select name="status" class="form-control" required>
+                    <option value="inProgress" <%= "inProgress".equals(request.getParameter("status")) ? "selected" : "" %>>In Progress</option>
+                    <option value="resolved" <%= "resolved".equals(request.getParameter("status")) ? "selected" : "" %>>Complaint is Resolved</option>
+                    <option value="rejected" <%= "rejected".equals(request.getParameter("status")) ? "selected" : "" %>>Complaint is Rejected</option>
+                </select>
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Subject</label>
-                    <input type="text" name="subject" class="form-control" value="<%= request.getParameter("subject") %>" required>
-                </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Date</label>
-                    <input type="date" name="date" class="form-control" value="<%= request.getParameter("date") %>" required>
-                </div>
+<%--                <div class="mb-3">--%>
+<%--                    <label class="form-label">User Name</label>--%>
+<%--                    <input type="text" name="uname" class="form-control" value="<%= request.getParameter("uname") %>" required>--%>
+<%--                </div>--%>
 
-                <div class="mb-3">
-                    <label class="form-label">Description</label>
-                    <textarea name="description" class="form-control" rows="4" required><%= request.getParameter("description") %></textarea>
-                </div>
+<%--                <div class="mb-3">--%>
+<%--                    <label class="form-label">Subject</label>--%>
+<%--                    <input type="text" name="subject" class="form-control" value="<%= request.getParameter("subject") %>" required>--%>
+<%--                </div>--%>
 
-                <div class="mb-4">
-                    <label class="form-label">Status</label>
-                    <input type="text" name="status" class="form-control" value="<%= request.getParameter("status") %>" required>
-                </div>
+<%--                <div class="mb-3">--%>
+<%--                    <label class="form-label">Date</label>--%>
+<%--                    <input type="date" name="date" class="form-control" value="<%= request.getParameter("date") %>" required>--%>
+<%--                </div>--%>
+
+<%--                <div class="mb-3">--%>
+<%--                    <label class="form-label">Description</label>--%>
+<%--                    <textarea name="description" class="form-control" rows="4" required><%= request.getParameter("description") %></textarea>--%>
+<%--                </div>--%>
+
+<%--                <div class="mb-4">--%>
+<%--                    <label class="form-label">Status</label>--%>
+<%--                    <input type="text" name="status" class="form-control" value="<%= request.getParameter("status") %>" required>--%>
+<%--                </div>--%>
 
                 <div class="d-flex justify-content-end gap-2">
                     <button type="submit" class="btn btn-primary">Update</button>

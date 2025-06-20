@@ -8,26 +8,26 @@ import java.util.List;
 
 public class CompliantModel {
 
-    public boolean saveComplaint(String complaintId, String username, String subject, String description, String date, String status)  {
+    public boolean saveComplaint(String complaintId, String username, String subject, String description, String date, String status) {
         String url = "jdbc:mysql://localhost:3306/jspassignment";
         String user = "root";
         String pass = "user1";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url,user,pass);
+            Connection connection = DriverManager.getConnection(url, user, pass);
 
             String sql = "insert into complaint (cid,uname,subject,description,date,status) values(?,?,?,?,?,?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,complaintId);
-            preparedStatement.setString(2,username);
-            preparedStatement.setString(3,subject);
-            preparedStatement.setString(4,description);
-            preparedStatement.setString(5,date);
-            preparedStatement.setString(6,"Pending");
+            preparedStatement.setString(1, complaintId);
+            preparedStatement.setString(2, username);
+            preparedStatement.setString(3, subject);
+            preparedStatement.setString(4, description);
+            preparedStatement.setString(5, date);
+            preparedStatement.setString(6, "Pending");
 
-           int result = preparedStatement.executeUpdate();
-           return result > 0;
+            int result = preparedStatement.executeUpdate();
+            return result > 0;
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -44,22 +44,22 @@ public class CompliantModel {
         List<ComplaintDto> complaintDtos = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url,user,pass);
+            Connection connection = DriverManager.getConnection(url, user, pass);
             String sql = "SELECT * FROM complaint WHERE uname=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,username);
+            preparedStatement.setString(1, username);
 
             ResultSet resultSet = preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                    complaintDtos.add(new ComplaintDto(
-                    resultSet.getString("cid"),
-                    resultSet.getString("uname"),
-                    resultSet.getString("subject"),
-                    resultSet.getString("description"),
-                    resultSet.getString("date"),
-                    resultSet.getString("status")
-                    ));
+                complaintDtos.add(new ComplaintDto(
+                        resultSet.getString("cid"),
+                        resultSet.getString("uname"),
+                        resultSet.getString("subject"),
+                        resultSet.getString("description"),
+                        resultSet.getString("date"),
+                        resultSet.getString("status")
+                ));
             }
 
         } catch (ClassNotFoundException | SQLException e) {
@@ -77,7 +77,7 @@ public class CompliantModel {
         List<ComplaintDto> complaintDtos = new ArrayList<>();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url,user,pass);
+            Connection connection = DriverManager.getConnection(url, user, pass);
             String sql = "SELECT * FROM complaint ";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -100,26 +100,26 @@ public class CompliantModel {
         return complaintDtos;
     }
 
-    public boolean updateComplaint(String complaintId, String username, String subject, String description, String date, String status)  {
+    public boolean updateComplaint(String complaintId, String username, String subject, String description, String date, String status) {
         String url = "jdbc:mysql://localhost:3306/jspassignment";
         String user = "root";
         String pass = "user1";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection =DriverManager.getConnection(url,user,pass);
+            Connection connection = DriverManager.getConnection(url, user, pass);
 
-            String sql ="UPDATE  complaint SET uname=?,subject=?,description=?,date=?, status=?  WHERE cid=? ";
+            String sql = "UPDATE  complaint SET uname=?,subject=?,description=?,date=?, status=?  WHERE cid=? ";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,username);
-            preparedStatement.setString(2,subject);
-            preparedStatement.setString(3,description);
-            preparedStatement.setString(4,date);
-            preparedStatement.setString(5,status);
-            preparedStatement.setString(6,complaintId);
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, subject);
+            preparedStatement.setString(3, description);
+            preparedStatement.setString(4, date);
+            preparedStatement.setString(5, status);
+            preparedStatement.setString(6, complaintId);
 
             int result = preparedStatement.executeUpdate();
-            return result >0 ;
+            return result > 0;
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -133,18 +133,39 @@ public class CompliantModel {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url,user,pass);
+            Connection connection = DriverManager.getConnection(url, user, pass);
 
             String sql = "DELETE FROM complaint WHERE cid=?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,cid);
+            preparedStatement.setString(1, cid);
 
             int result = preparedStatement.executeUpdate();
-            return result >0 ;
+            return result > 0;
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean updateComplaintStatus(String cid, String status) {
+        String url = "jdbc:mysql://localhost:3306/jspassignment";
+        String user = "root";
+        String pass = "user1";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection = DriverManager.getConnection(url, user, pass);
+
+            PreparedStatement pst = connection.prepareStatement("UPDATE complaint SET status=? WHERE cid=?");
+
+            pst.setString(1, status);
+            pst.setString(2, cid);
+
+            return pst.executeUpdate() > 0;
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

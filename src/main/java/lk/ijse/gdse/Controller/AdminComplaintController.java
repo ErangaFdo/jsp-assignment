@@ -19,13 +19,13 @@ public class AdminComplaintController extends HttpServlet {
         switch (action) {
             case "update":
                 String cid = req.getParameter("cid");
-                String username = req.getParameter("uname");
-                String subject = req.getParameter("subject");
-                String date = req.getParameter("date");
-                String description = req.getParameter("description");
+//                String username = req.getParameter("uname");
+//                String subject = req.getParameter("subject");
+//                String date = req.getParameter("date");
+//                String description = req.getParameter("description");
                 String status = req.getParameter("status");
 
-                boolean update = compliantModel.updateComplaint(cid, username, subject, date, description, status);
+                boolean update = compliantModel.updateComplaintStatus(cid, status);
 
                 if (update) {
                     System.out.println("update complaint");

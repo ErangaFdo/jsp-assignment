@@ -83,23 +83,18 @@
 
         <div class="mb-4">
           <label class="form-label">Status</label>
-          <input type="text" name="status" class="form-control" value="<%= request.getParameter("status") %>" required>
+          <input type="text" name="status" class="form-control" value="<%= request.getParameter("status") %>" required readonly>
         </div>
 
         <div class="d-flex justify-content-end gap-2">
           <button type="submit" class="btn btn-primary">Update</button>
-          <a href="adminDashboard.jsp" class="btn btn-outline-secondary">Cancel</a>
+          <a href="userUpdateForm.jsp" class="btn btn-outline-secondary">Cancel</a>
         </div>
       </form>
     </div>
   </div>
 </div>
 
-</body>
-</html>
-</title>
-</head>
-<body>
 
 </body>
 </html>

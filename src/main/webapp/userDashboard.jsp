@@ -80,11 +80,21 @@
                         </div>
                     </form>
 
+                    <form action="userComplaintView" method="post">
+                        <input type="hidden" name="uname" id="hiddenUname">
+                        <div class="mb-3 text-start">
+                            <button type="submit" class="btn btn-outline-primary">View My Complaints</button>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 </body>
 </html>

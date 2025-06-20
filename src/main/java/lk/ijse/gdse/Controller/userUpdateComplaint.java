@@ -32,7 +32,7 @@ public class userUpdateComplaint extends HttpServlet {
                 } else {
                     System.out.println("update not complaint");
                 }
-                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+                req.getRequestDispatcher("userComplaint.jsp").forward(req, resp);
                 break;
 
             case "delete":
@@ -43,10 +43,10 @@ public class userUpdateComplaint extends HttpServlet {
                 } else {
                     System.out.println("delete not complaint");
                 }
-                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+                req.getRequestDispatcher("userComplaint.jsp").forward(req, resp);
                 break;
             default:
-                req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
+                req.getRequestDispatcher("userComplaint.jsp").forward(req, resp);
 
         }
 

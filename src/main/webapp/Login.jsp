@@ -75,5 +75,22 @@
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<% String msg = (String) request.getAttribute("message"); %>
+<% if (msg != null) { %>
+<script>
+    const msg = document.body.dataset.msg;
+    if (msg) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Notification',
+            text: msg,
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK'
+        });
+    }
+</script>
+<% } %>
+
 </body>
 </html>

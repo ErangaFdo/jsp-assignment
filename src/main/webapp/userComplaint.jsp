@@ -42,11 +42,16 @@
         <h4 class="text-primary mb-0">🧾 Complaint History</h4>
 
 
-        <%
-             String username = request.getParameter("username");
-             CompliantModel compliantModel = new CompliantModel();
-             List<ComplaintDto>complaintDtos= compliantModel.getComplaintByuser(username);
-        %>
+    <%
+        String uname = (String) session.getAttribute("uname");
+        if (uname == null) {
+            response.sendRedirect("Login.jsp");
+            return;
+        }
+
+        CompliantModel model = new CompliantModel();
+        List<ComplaintDto> complaintDtos = model.getComplaintByuser(uname);
+    %>
 
 
 

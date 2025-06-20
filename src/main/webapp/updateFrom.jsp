@@ -97,9 +97,3 @@
 
 </body>
 </html>
-</title>
-</head>
-<body>
-
-</body>
-</html>

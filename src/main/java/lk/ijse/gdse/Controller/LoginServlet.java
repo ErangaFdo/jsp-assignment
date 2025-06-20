@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lk.ijse.gdse.Model.LoginModel;
 
 import java.io.IOException;
@@ -20,13 +21,18 @@ public class LoginServlet extends HttpServlet {
          String role = loginModel.checkLogin(username, password);
 
          if( role != null){
+             HttpSession session = req.getSession();
+             session.setAttribute("uname", username);
              if (role.equals("admin")){
-                   resp.sendRedirect("adminDashboard.jsp");
+                   req.setAttribute("message", "Login successful! Welcome Admin.");
+                 req.getRequestDispatcher("adminDashboard.jsp").forward(req, resp);
              } else if (role.equals("user")){
-                 resp.sendRedirect("userDashboard.jsp");
+                 req.setAttribute("message", "Login successful! Welcome User.");
+                 req.getRequestDispatcher("userDashboard.jsp").forward(req, resp);
              }else {
+                 req.setAttribute("message", "Login failed!");
                  System.out.println("Invalid username or password");
-                 resp.sendRedirect("Login.jsp");
+                 req.getRequestDispatcher("Login.jsp").forward(req, resp);
          }
 
          } else {
